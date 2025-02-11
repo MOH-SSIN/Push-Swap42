@@ -6,7 +6,7 @@
 /*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:30:09 by mez-zahi          #+#    #+#             */
-/*   Updated: 2025/02/10 16:32:53 by mez-zahi         ###   ########.fr       */
+/*   Updated: 2025/02/11 11:48:04 by mez-zahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,29 +100,21 @@ void move_b_vers_a(t_noeud **a, t_noeud **b);
 
 // LES OPERATIONS
 // void swap(t_noeud **pile);
-// void sa(t_noeud **a , bool afch);
-// void sb(t_noeud **b , bool afch);
-// void ss(t_noeud **a, t_noeud **b, bool afch);
+void sa(t_noeud **a , bool afch);
+void sb(t_noeud **b , bool afch);
+void ss(t_noeud **a, t_noeud **b, bool afch);
 
-// // void rotate(t_noeud **pile);
-// void ra(t_noeud **a, bool afch);
-// void rb(t_noeud **b, bool afch);
-// void rr(t_noeud **a, t_noeud **b, bool afch);
+// void rotate(t_noeud **pile);
+void ra(t_noeud **a, bool afch);
+void rb(t_noeud **b, bool afch);
+void rr(t_noeud **a, t_noeud **b, bool afch);
 
-// // void reverse_rotate(t_noeud **pile);
-// void rra(t_noeud **a, bool afch);
-// void rrb(t_noeud **b, bool afch);
-// void rrr(t_noeud **a, t_noeud **b, bool afch);
+// void reverse_rotate(t_noeud **pile);
+void rra(t_noeud **a, bool afch);
+void rrb(t_noeud **b, bool afch);
+void rrr(t_noeud **a, t_noeud **b, bool afch);
 
-// void pa(t_noeud **a, t_noeud **b, bool afch);
-// void pb(t_noeud **a, t_noeud **b, bool afch);
+void pa(t_noeud **a, t_noeud **b, bool afch);
+void pb(t_noeud **a, t_noeud **b, bool afch);
 
-//moves
-void    push(t_noeud **a, t_noeud **b, bool sign);
-void    rotate(t_noeud **a, bool sig, bool a_b);
-void    double_rotate(t_noeud **a, t_noeud **b);
-void    rrotate(t_noeud **a, bool sig, bool a_b);
-void    double_rrotate(t_noeud **a, t_noeud **b);
-void    swap(t_noeud **a, bool sig, bool a_b);
-void    double_swap(t_noeud **a, t_noeud **b);
 #endif

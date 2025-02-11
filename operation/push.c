@@ -1,29 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:16 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:08:19 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    push(t_noeud **a, t_noeud **b, bool sign)
+static void push_2(t_noeud **src, t_noeud **dest)
 {
     t_noeud *first;
 
-    if (!(*b))
+    if (!(*src))
         return ;
 
-    first = *b;
-    *b = first->suivant;
+    first = *src;
+    *src = first->suivant; 
 
-    if (*b) 
-        (*b)->precedent = NULL;
+    if (*src)
+        (*src)->precedent = NULL;
 
-    first->suivant = *a;
+    first->suivant = *dest;
 
-    if (*a) 
-        (*a)->precedent = first;
+    if (*dest)
+        (*dest)->precedent = first;
 
     first->precedent = NULL;
-    *a = first;
-    set_index(*a);
-    set_index(*b);
-    if (sign)
+    *dest = first;
+    set_index(*src);
+    set_index(*dest);
+}
+
+void pa(t_noeud **a, t_noeud **b, bool afch)
+{
+    push_2(b, a);
+    if (!afch)
         write(1, "pa\n", 3);
-    else
+}
+
+void pb(t_noeud **a, t_noeud **b, bool afch)
+{
+    push_2(a, b);
+    if (!afch)
         write(1, "pb\n", 3);
 }

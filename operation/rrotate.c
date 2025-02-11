@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rrotate.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:31 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:08:33 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    rrotate(t_noeud **a, bool sig, bool a_b)
+static void reverse_rotate(t_noeud **pile)
 {
-	t_noeud *last;
+    t_noeud *last;
     t_noeud *before_last;
 
-    if (!(*a) || !(*a)->suivant)
+    if (!(*pile) || !(*pile)->suivant)
         return ;
 
-    last = *a;
+    last = *pile;
     while (last->suivant)
         last = last->suivant;
 
@@ -18,19 +30,30 @@ void    rrotate(t_noeud **a, bool sig, bool a_b)
     last->precedent = NULL;
 
 
-    last->suivant = *a;
-    (*a)->precedent = last;
-    *a = last;
-    set_index(*a);
-    if (sig && a_b)
-        write (1, "rra\n", 4);
-    else if (sig && !a_b)
-        write (1, "rrb\n", 4);
+    last->suivant = *pile;
+    (*pile)->precedent = last;
+    *pile = last;
+    set_index(*pile);
 }
 
-void    double_rrotate(t_noeud **a, t_noeud **b)
+void rra(t_noeud **a, bool afch)
 {
-    rrotate(a, false, true);
-    rrotate(b, false, false);
-    write (1, "rrr\n", 4);
+    reverse_rotate(a);
+    if (!afch)
+        write(1, "rra\n", 4);
+}
+
+void rrb(t_noeud **b, bool afch)
+{
+    reverse_rotate(b);
+    if (!afch)
+        write(1, "rrb\n", 4);
+}
+
+void rrr(t_noeud **a, t_noeud **b, bool afch)
+{
+    reverse_rotate(a);
+    reverse_rotate(b);
+    if (afch)
+        write(1, "rrr\n", 4);
 }

@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   chker_erreur.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:51 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:14:44 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
 
 
 int ft_vide_space(char *str)
@@ -13,8 +25,6 @@ int ft_vide_space(char *str)
     return 1;
 }
 
-
-// fonction Parse_ArgEnd_Init_a 
 static int verifier_syntaxe(char *str)
 {
     int     i;
@@ -39,7 +49,6 @@ static int verfier_doubl(char **str, int nbr)
 {
     int i;
     int check;
-    // int j;
 
     check = 0;
     i = 0;
@@ -54,29 +63,6 @@ static int verfier_doubl(char **str, int nbr)
     else
         return (1);
 }
-
-
-// static void afficher_pile_str(t_noeud *pile)
-// {
-//     t_noeud *tmp;
-
-//     if (!pile)
-//     {
-//         printf("Pileest vide.\n");
-//         return;
-//     }
-//     printf("pile: \n");
-//     tmp = pile;
-//     printf("->");
-//     while (tmp)
-//     {
-//         printf("adreese =%p\tvaleur = %d\tlength = %d\tsub = %d\t\tindice = %d\tappartien = %d\n", tmp,tmp->valeur,tmp->length,tmp->sub,tmp->indice,tmp->appartient);
-//         if (tmp->suivant)
-//             printf("->");
-//         tmp = tmp->suivant;
-//     }
-//     printf("fin pile: \n");
-// }
 
 void Parse_ArgEnd_Init_a(t_noeud **a, t_noeud **b, char **args)
 {

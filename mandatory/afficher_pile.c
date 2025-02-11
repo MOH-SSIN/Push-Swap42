@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void afficher_pile(t_noeud *pile)
 {

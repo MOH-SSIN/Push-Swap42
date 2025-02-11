@@ -6,12 +6,17 @@
 /*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:30:11 by mez-zahi          #+#    #+#             */
-/*   Updated: 2025/02/09 16:52:24 by mez-zahi         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:16:07 by mez-zahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
+
+// void ft_mohcine()
+// {
+//     system("leaks push_swap");
+// }
 
 int main(int argc, char **argv)
 {
@@ -40,6 +45,7 @@ int main(int argc, char **argv)
         args = concat_arg(argc, argv);
     }
     Parse_ArgEnd_Init_a(&a, &b, args);
-    
+    // atexit(ft_mohcine);
+    free_piles(a, b);
     return (0);
 }

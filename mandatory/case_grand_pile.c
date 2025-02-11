@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   case_grand_pile.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:46 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:14:40 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
 
 static bool is_true(t_noeud *a)
 {
@@ -21,9 +33,9 @@ void push_non_list(t_noeud **a, t_noeud**b)
         set_index(*a);
         tmp = *a;
         if ((tmp)->appartient)
-            rotate(a, true, true);
+            ra(a, false);
         else
-            push(b, a, false);
+            pb(a, b, false);
         tmp = (tmp)->suivant;
     }
 }
@@ -70,10 +82,10 @@ void case_grand_pile(t_noeud **a,t_noeud **b)
     ptit = ft_Get_PtitdNode(*a);
     if (ptit->au_dessus_median)
         while (*a != ptit)
-            rotate(a, true, true);
+            ra(a, false);
     else
         while (*a != ptit)
-            rrotate(a, true, true);
+            rra(a, false);
 }
 
 

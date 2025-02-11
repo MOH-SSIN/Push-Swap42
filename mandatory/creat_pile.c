@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   creat_pile.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:57 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:14:51 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
 
 t_noeud *lstnew(char *args, int indice)
 {
@@ -46,14 +58,6 @@ void lsadd_back(t_noeud **pile, t_noeud *new_1)
     }
 }
 
-void	lstadd_front(t_noeud **lst, t_noeud *new_1)
-{
-	if (!lst || !new_1)
-		return ;
-	new_1->suivant = *lst;
-	*lst = new_1;
-}
-
 t_noeud *ajouter_noeud(char **args)
 {
     t_noeud *pile;
@@ -72,12 +76,7 @@ t_noeud *ajouter_noeud(char **args)
         free_pile(pile);
         exit(0);
     }
-    // printf("hhh\n");
-    // printf("***************************\n");
-    // afficher_pile(pile);
-    // printf("***************************\n");
     ft_lis(&pile);
-    // printf("apres_ft_lis\n");
     liberer_erreurs(args);
     return (pile);
 }

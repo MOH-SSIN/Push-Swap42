@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lis.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:09:09 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:14:58 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
 
 
 static t_noeud *ft_Get_MaxNoueud_Length(t_noeud *a)
@@ -24,17 +36,12 @@ static void ft_appartient(t_noeud **a)
 {
     t_noeud *max_noeudleght;
 
-    // printf("dans la fnction ft_appartienthh\n");
     max_noeudleght = ft_Get_MaxNoueud_Length(*a);
-    // printf("ft_Get_MaxNoueud_Length(*a) = %d\n",max_noeudleght->valeur);
-    // afficher_sub_ptr(*a);;
-    // exit(0);
     while (max_noeudleght)
     {
         max_noeudleght->appartient = true;
         max_noeudleght = max_noeudleght->sub_ptr;
     }
-        // printf("mohcine afichage\n");
 }
 
 void ft_lis(t_noeud **a)
@@ -59,8 +66,5 @@ void ft_lis(t_noeud **a)
         }
         i = i->suivant;
     }
-    // printf("dans ft_lis\n");
-    // afficher_sub_ptr(*a);
-    // exit(0);
     ft_appartient(a);
 }

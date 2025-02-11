@@ -1,35 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mez-zahi <mez-zahi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:08:22 by mez-zahi          #+#    #+#             */
+/*   Updated: 2025/02/11 12:08:23 by mez-zahi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    rotate(t_noeud **a, bool sig, bool a_b)
+static void rotate(t_noeud **pile)
 {
     t_noeud *first;
     t_noeud *last;
 
-    if (!(*a) || !(*a)->suivant)
+    if (!(*pile) || !(*pile)->suivant)
         return ;
 
-    first = *a;
-    last = *a;
+    first = *pile;
+    last = *pile;
 
     while (last->suivant)
         last = last->suivant;
 
-    *a = first->suivant;
-    (*a)->precedent = NULL;
+    *pile = first->suivant;
+    (*pile)->precedent = NULL;
 
     last->suivant = first;
     first->precedent = last;
     first->suivant = NULL;
-    set_index(*a);
-    if (sig && a_b)
-        write (1, "ra\n", 3);
-    else if (sig && !a_b)
-        write (1, "rb\n", 3);
+    set_index(*pile);
 }
 
-void    double_rotate(t_noeud **a, t_noeud **b)
+void ra(t_noeud **a, bool afch)
 {
-    rotate(a, false, true);
-    rotate(b, false, false);
-    write (1, "rr\n", 3);
+    rotate(a);
+    if (!afch)
+        write(1, "ra\n", 3);
+}
+
+void rb(t_noeud **b, bool afch)
+{
+    rotate(b);
+    if (!afch)
+        write(1, "rb\n", 3);
+}
+
+void rr(t_noeud **a, t_noeud **b, bool afch)
+{
+    rotate(a);
+    rotate(b);
+    if (afch)
+        write(1, "rr\n", 3);
 }
